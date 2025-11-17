@@ -1,0 +1,6 @@
+@model SabFlix.Models.Filme
+
+<h1>@Model.Nome</h1>
+<p>@Model.Descricao</p>
+<p><strong>Gêneros:</strong> @string.Join(", ", Model.FilmeGeneros.Select(fg => fg.Genero.Nome))</p>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Voltar</a>

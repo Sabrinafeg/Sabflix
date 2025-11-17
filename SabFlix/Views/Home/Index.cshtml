@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SabFlix.Models.Filme>
+
+<h1>Catálogo de Filmes</h1>
+
+<div class="row">
+@foreach (var filme in Model)
+{
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">@filme.Nome</h5>
+                <p class="card-text">@filme.Descricao</p>
+                <p><strong>Gêneros:</strong> 
+                    @string.Join(", ", filme.FilmeGeneros.Select(fg => fg.Genero.Nome))
+                </p>
+                    <a href="@Url.Action("Detalhes", "Home", new { id = filme.Id })" class="btn btn-primary">Ver Detalhes</a>
+
+            </div>
+        </div>
+    </div>
+}
+</div>
